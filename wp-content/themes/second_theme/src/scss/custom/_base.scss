@@ -1,0 +1,122 @@
+// This are variables for sizing across the site
+//Font sizings
+$smallest-sizing: 11px;
+$smaller-sizing: 12px;
+$small-sizing: 16px;
+$medium-sizing: 18px;
+$Large-sizing: 24px;
+$larger-sizing: 36px;
+$largest-sizing: 48px;
+$extralarge-sizing: 64px;
+$extralarger-sizing: 72px;
+$extralargest-sizing: 96px;
+
+//Colors
+$primary-color: #FF2546;
+$secondary-color: #000000;
+$tertiary-color:  #333333;
+$header-color:    #BDBDBD;
+$header-text-color: #828282;
+$main-bg-color: #F7F7F7;
+$text-color:#000000;
+$contact-bg-color:#FFCF25;
+$footer-text-color:#FFFFFF;
+
+
+
+body,
+html,
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family:  'Brown';
+}
+
+body{
+    &.home{
+        background-color: $main-bg-color;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: $secondary-color;
+}
+
+
+
+/*
+0-640px: phone
+
+640-768px: Tablet portrait
+
+768 - 1024px: Tablet landscape
+
+1024 - px:  small desktop styles
+
+$breakpoint arguments choices:
+-sm
+-md
+-lg
+-xl
+1em = 16px
+*/
+
+@mixin respond($breakpoint) {
+    @if $breakpoint ==sm {
+        @media only screen and (min-width: 40em) {
+            @content;
+        }
+
+        //640px
+    }
+
+    @if $breakpoint ==md {
+        @media only screen and (min-width: 48em) {
+            @content;
+        }
+
+        //768px
+    }
+
+    @if $breakpoint ==lg {
+        @media only screen and (min-width: 64em) {
+            @content;
+        }
+
+        //1024px
+    }
+
+    @if $breakpoint ==xl {
+        @media only screen and (miin-width: 80em) {
+            @content;
+        }
+
+        //1280px
+    }
+
+    @if $breakpoint ==2xl {
+        @media only screen and (max-width: 96em) {
+            @content;
+        }
+
+        //1536px
+    }
+
+    // @if $breakpoint ==big-desktop-assoc {
+    //     @media only screen and (max-width: 109.5em) {
+    //         @content;
+    //     }
+
+    //     //1440px
+    // }
+
+    // @if $breakpoint ==big-desktop {
+    //     @media only screen and (min-width: 110em) {
+    //         @content;
+    //     }
+
+    //     //1800px
+    // }
+}
