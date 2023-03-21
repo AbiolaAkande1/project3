@@ -16,6 +16,7 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 
 	<?php wp_head(); ?>
 </head>
@@ -26,45 +27,51 @@
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'second_theme' ); ?></a>
 
 
-<!-- THIS IS THE LOGO AND NAV LINKS SECTION -->
-<header id="masthead" class="site-header nav">
-	<div class="site-wrapper">
-		<!-- <a class="toggle-nav" href="#">&#9776;</a> -->
-		<div class="nav-bar">
-			<!-- THIS IS THE SITE LOGO SECTION -->
-			<div class="nav-logo"> 
-				<div class="site-branding">
-					<?php the_custom_logo(); ?>
-
-				</div><!-- .site-branding -->
-			</div>
-		
-			<!-- THIS IS THE NAV LINKS SECTION -->
-			<nav id="site-navigation" class="main-navigation nav-bar-links">
-				<div class="primary-menu">
-					<button class="toggle-nav" aria-controls="primary-menu" aria-expanded="false"> <?php esc_html_e( '&#9776;', 'second_theme' ); ?></button>
-
-					<div class="skip-link screen-reader-text">
-        				<a href="#content" title="<?php esc_attr_e	('Skip to content', 'tutsplus' ); ?>">
-            				<?php _e( 'Skip to content', 'tutsplus' ); ?>
-       					</a>
-    				</div>
-
-					<?php
-					wp_nav_menu(
-					array(
-						'theme_location' => 'menu-1',
-						'menu_id'        => 'primary-menu',
-						'container'      => 'div',
-						'container_class'=>  'primary-menu',
-						'container_id'   =>   '',
-						'menu_id'        => 'primary-menu',
-						'items_wrap'     => '<ul>%3$s</ul>',
-					)
-					);
-					?>
-				</div>
-			</nav><!-- #site-navigation -->
-		</div>
-	</div>
-</header><!-- #masthead -->
+	<!-- THIS IS THE LOGO AND NAV LINKS SECTION -->
+	<header id="masthead" class="site-header">
+        <div class="nav-menu" id="nav-menu">
+            <div class="site-wrapper">
+                <div class="menu-container" id="menu-container">
+                    <div class="site-branding logo-container" id="logo-container">
+                        <?php
+                            the_custom_logo();
+                        ?>
+                    </div>
+                    <nav id="site-navigation" class="main-navigation navbar">
+                        <button class="menu-toggle" aria-controls="mobile-menu" aria-expanded="false"><?php esc_html_e( '', 'second_theme' ); ?>
+                            <div class="hamburger-container" id="click">
+                                <span class="hamburger first"></span>
+                                <span class="hamburger second"></span>
+                                <span class="hamburger third"></span>
+                            </div>
+                            <?php
+                                wp_nav_menu(
+                                    array(
+                                        'theme_location'    => 'mobile-menu',
+                                        'menu_class'        => 'mobile-menu',
+                                        'container'         => 'div',
+                                        'container_class'   => 'mobile-list',
+                                        'container_id'      => 'mobile-list-menu',
+                                        'menu_id'           => 'mobile-menu',
+                                        'items_wrap'        => '<ul class="mobile-menu">%3$s</ul>',
+                                    )
+                                );
+                            ?>
+                        </button>
+                        <?php
+                            wp_nav_menu(
+                                array(
+                                    'theme_location'    =>  'menu-1',
+                                    'container'         =>  'div',
+                                    'container_class'   =>  'navbar-list',
+                                    'container_id'      =>  'navbar-list',
+                                    'menu_id'           =>  'primary-menu',
+                                    'items_wrap'        =>  '<ul class="menu-list">%3$s</ul>'
+                                )
+                            );
+                        ?>
+                    </nav><!-- #site-navigation -->
+                </div>
+            </div>
+        </div>
+    </header><!-- #masthead -->

@@ -52,6 +52,8 @@ function second_theme_setup() {
 			'menu-1' => esc_html__( 'Primary', 'second_theme' ),
 			'footer-menu1' => esc_html__( 'Footer Menu 1', 'second_theme' ),
 			'footer-menu2' => esc_html__( 'Footer Menu 2', 'second_theme' ),
+			'mobile-menu' => esc_html__( 'Mobile Menu', 'second_theme' ),
+			
 			
 		)
 	);
@@ -207,10 +209,10 @@ function insert_category() {
 	
 add_action( 'after_setup_theme', 'insert_category' );
 
-function tutsplus_burger_menu_scripts() {
+// function tutsplus_burger_menu_scripts() {
     
-	wp_enqueue_script( 'burger-menu-script', get_stylesheet_directory_uri() . '/js/burger-menu.js', array( 'jquery' ) );
+// 	wp_enqueue_script( 'burger-menu-script', get_stylesheet_directory_uri() . '/js/burger-menu.js', array( 'jquery' ) );
  
-}
-add_action( 'wp_enqueue_scripts', 'tutsplus_burger_menu_scripts' );
+// }
+// add_action( 'wp_enqueue_scripts', 'tutsplus_burger_menu_scripts' );
 
